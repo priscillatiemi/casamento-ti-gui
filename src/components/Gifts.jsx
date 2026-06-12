@@ -7,39 +7,141 @@ const MERCADO_PAGO_LINK =
 
 const gifts = [
   {
-    name: 'Ramen em Tóquio',
-    value: 100,
-    description: 'Para um jantar especial na lua de mel.',
+    name: 'Passagem de Shinkansen',
+    value: 1000,
+    description: 'Para uma experiência inesquecível no trem-bala japonês.',
     image: '/gifts/ramen.jpg'
   },
   {
-    name: 'Passeio em Akihabara',
-    value: 150,
-    description: 'Para viver nosso lado anime e gamer.',
+    name: 'Geladeira',
+    value: 3000,
+    description: 'Para nos ajudar a montar nossa casa nova!',
     image: '/gifts/ramen.jpg'
   },
   {
-    name: 'Café em Kyoto',
-    value: 180,
-    description: 'Um momento romântico no Japão.',
+    name: 'Air Fryer',
+    value: 800,
+    description: 'Para facilitar a nossa rotina na cozinha.',
     image: '/gifts/ramen.jpg'
   },
   {
-    name: 'Ticket de trem',
-    value: 250,
-    description: 'Ajuda para conhecer mais cidades.',
+    name: 'Pacote de ração do Eren',
+    value: 350,
+    description: 'Para garantir a felicidade do nosso amado Eren!',
     image: '/gifts/ramen.jpg'
   },
   {
-    name: 'Jantar romântico',
-    value: 300,
-    description: 'Uma noite especial para comemorar.',
+    name: 'Máquina de espresso do Gui',
+    value: 2000,
+    description: 'Para preparar o melhor café da manhã!',
     image: '/gifts/ramen.jpg'
   },
   {
-    name: 'Ajuda na passagem',
+    name: 'Para a Ti fazer as compras na Shein',
+    value: 400,
+    description: 'Para a Ti comprar roupas novas na Shein!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Microondas',
+    value: 500,
+    description: 'Para esquentar as comidinhas do dia a dia!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Viagem para Okinawa',
+    value: 2000,
+    description: 'Visita à terra natal dos parentes do Gui!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Comprar um Sanshin para o Gui',
+    value: 1400,
+    description: 'Para o Gui aprender a tocar seu instrumento favorito de Okinawa!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Guitarra pra Ti',
     value: 500,
     description: 'Uma contribuição para a nossa viagem.',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Jantar romântico na Viagem',
+    value: 450,
+    description: 'Para a gente aproveitar um tempo juntinhos em uma viagem!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Comprar meias novas para o Gui',
+    value: 300,
+    description: 'Para o Gui renovar seu estoque de meias, que estão pedindo socorro!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Comprar a receita de Pudim da Tânia',
+    value: 1000,
+    description: 'O segredo que todos querem saber para fazer o melhor pudim do mundo!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Comprar a receita de salada de macarrão da Nilce',
+    value: 1000,
+    description: 'A salada favorita da Ti e do Gui!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Aspirador Robô',
+    value: 1200,
+    description: 'Pra aspirar os pelos do Eren que ficam pela casa!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Caminhão pipa pra satisfazer a sede da Ti',
+    value: 700,
+    description: 'Pra matar a sede da Ti, que é insaciável!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Dinheiro pro Gui renovar a coleção de camisa Pima dele',
+    value: 1000,
+    description: 'Para o Gui comprar camisas Pima novas, que são as favoritas dele!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Dinheiro pra indenizar as pessoas que foram mordidas pelo Eren!',
+    value: 1300,
+    description: 'Para cobrir os custos de possíveis mordidas do Eren!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Ingressos para shows de Metal',
+    value: 600,
+    description: 'Para a Ti ir nos shows de metal que ela ama tanto!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Câmera para gravar pro canal da Ti e do Gui',
+    value: 2500,
+    description: 'Ajuda a gente a sair do CLT!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Hotel pra o Eren ficar enquanto viajamos',
+    value: 2150,
+    description: 'Para o Eren ficar confortável e bem cuidado enquanto estamos viajando!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Para o Gui comprar livros',
+    value: 600,
+    description: 'Para o Gui encher a estante de livros dele!',
+    image: '/gifts/ramen.jpg'
+  },
+  {
+    name: 'Ingressos para os shows de Kpop do Gui',
+    value: 800,
+    description: 'Para o Gui ir nos shows de Kpop que ele ama tanto!',
     image: '/gifts/ramen.jpg'
   }
 ];
