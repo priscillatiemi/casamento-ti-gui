@@ -1,4 +1,12 @@
 import { initializeApp } from 'firebase/app';
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from 'firebase/auth';
+
 import {
   getFirestore,
   collection,
@@ -25,6 +33,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const auth = getAuth(app);
+
+export function loginAdmin(email, password) {
+  return signInWithEmailAndPassword(auth, email, password);
+}
+
+export function logoutAdmin() {
+  return signOut(auth);
+}
+
+export function listenAuth(callback) {
+  return onAuthStateChanged(auth, callback);
+}
 
 export function normalizeName(name) {
   return String(name || '')
