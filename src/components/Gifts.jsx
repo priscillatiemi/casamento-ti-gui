@@ -10,37 +10,37 @@ const gifts = [
     name: 'Passagem de Shinkansen',
     value: 1000,
     description: 'Para uma experiência inesquecível no trem-bala japonês.',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/shinkansen.png'
   },
   {
     name: 'Geladeira',
     value: 3000,
     description: 'Para nos ajudar a montar nossa casa nova!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/geladeira.png'
   },
   {
     name: 'Air Fryer',
     value: 800,
     description: 'Para facilitar a nossa rotina na cozinha.',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/airfryer.png'
   },
   {
     name: 'Pacote de ração do Eren',
     value: 350,
     description: 'Para garantir a felicidade do nosso amado Eren!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/racao.png'
   },
   {
     name: 'Máquina de espresso do Gui',
     value: 2000,
     description: 'Para preparar o melhor café da manhã!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/espresso.png'
   },
   {
     name: 'Para a Ti fazer as compras na Shein',
     value: 400,
     description: 'Para a Ti comprar roupas novas na Shein!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/shein.png'
   },
   {
     name: 'Microondas',
@@ -52,7 +52,7 @@ const gifts = [
     name: 'Viagem para Okinawa',
     value: 2000,
     description: 'Visita à terra natal dos parentes do Gui!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/okinawa.png'
   },
   {
     name: 'Comprar um Sanshin para o Gui',
@@ -194,12 +194,12 @@ export default function Gifts() {
         {gifts.map((gift) => (
           <article className="giftCard" key={gift.name}>
             <h3>{gift.name}</h3>
+              <img
+                src={gift.image}
+                alt={gift.name}
+                className="giftImage"
+              />
             <p>{gift.description}</p>
-            <img
-              src={gift.image}
-              alt={gift.name}
-              className="giftImage"
-            />
             <strong>R$ {gift.value}</strong>
 
             <button
