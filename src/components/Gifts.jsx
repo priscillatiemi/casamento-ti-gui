@@ -46,7 +46,7 @@ const gifts = [
     name: 'Microondas',
     value: 500,
     description: 'Para esquentar as comidinhas do dia a dia!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/microondas.png'
   },
   {
     name: 'Viagem para Okinawa',
@@ -58,25 +58,25 @@ const gifts = [
     name: 'Comprar um Sanshin para o Gui',
     value: 1400,
     description: 'Para o Gui aprender a tocar seu instrumento favorito de Okinawa!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/sanshin.png'
   },
   {
     name: 'Guitarra pra Ti',
     value: 500,
-    description: 'Uma contribuição para a nossa viagem.',
-    image: '/gifts/ramen.jpg'
+    description: 'Uma guitarra nova para a Ti!',
+    image: '/gifts/guitarra.png'
   },
   {
     name: 'Jantar romântico na Viagem',
     value: 450,
     description: 'Para a gente aproveitar um tempo juntinhos em uma viagem!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/jantar.png'
   },
   {
     name: 'Comprar meias novas para o Gui',
     value: 300,
     description: 'Para o Gui renovar seu estoque de meias, que estão pedindo socorro!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/meias.png'
   },
   {
     name: 'Comprar a receita de Pudim da Tânia',
@@ -94,13 +94,13 @@ const gifts = [
     name: 'Aspirador Robô',
     value: 1200,
     description: 'Pra aspirar os pelos do Eren que ficam pela casa!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/aspirador.png'
   },
   {
     name: 'Caminhão pipa pra satisfazer a sede da Ti',
     value: 700,
     description: 'Pra matar a sede da Ti, que é insaciável!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/agua.png'
   },
   {
     name: 'Dinheiro pro Gui renovar a coleção de camisa Pima dele',
