@@ -106,19 +106,19 @@ const gifts = [
     name: 'Dinheiro pro Gui renovar a coleção de camisa Pima dele',
     value: 1000,
     description: 'Para o Gui comprar camisas Pima novas, que são as favoritas dele!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/pima.png'
   },
   {
     name: 'Dinheiro pra indenizar as pessoas que foram mordidas pelo Eren!',
     value: 1300,
     description: 'Para cobrir os custos de possíveis mordidas do Eren!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/mordida.png'
   },
   {
     name: 'Ingressos para shows de Metal',
     value: 600,
     description: 'Para a Ti ir nos shows de metal que ela ama tanto!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/metal.png'
   },
   {
     name: 'Câmera para gravar pro canal da Ti e do Gui',
