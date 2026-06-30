@@ -117,7 +117,7 @@ const gifts = [
   {
     name: 'Ingressos para shows de Metal',
     value: 600,
-    description: 'Para a Ti ir nos shows de metal que ela ama tanto!',
+    description: 'Para a Ti ir nos shows de metal que ela tanto ama!',
     image: '/gifts/metal.png'
   },
   {
