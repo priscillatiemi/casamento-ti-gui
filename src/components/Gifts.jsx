@@ -2,147 +2,168 @@ import { useState } from 'react';
 import { saveGiftIntent } from '../services/firebase.js';
 
 const PIX_KEY = 'COLOQUE_SUA_CHAVE_PIX_AQUI';
-const MERCADO_PAGO_LINK =
-  'https://link.mercadopago.com.br/casamentotg';
 
 const gifts = [
   {
     name: 'Passagem de Shinkansen',
     value: 1000,
     description: 'Para uma experiência inesquecível no trem-bala japonês.',
-    image: '/gifts/shinkansen.png'
+    image: '/gifts/shinkansen.png',
+    mercadoPagoLink: 'https://mpago.la/3441ncx'
   },
   {
     name: 'Geladeira',
     value: 3000,
     description: 'Para nos ajudar a montar nossa casa nova!',
-    image: '/gifts/geladeira.png'
+    image: '/gifts/geladeira.png',
+    mercadoPagoLink: 'https://mpago.la/1wAvD7A'
   },
   {
     name: 'Air Fryer',
     value: 800,
     description: 'Para facilitar a nossa rotina na cozinha.',
-    image: '/gifts/airfryer.png'
+    image: '/gifts/airfryer.png',
+    mercadoPagoLink: 'https://mpago.la/1z3mhC9'
   },
   {
     name: 'Pacote de ração do Eren',
-    value: 350,
+    value: 200,
     description: 'Para garantir a felicidade do nosso amado Eren!',
-    image: '/gifts/racao.png'
+    image: '/gifts/racao.png',
+    mercadoPagoLink: 'https://mpago.la/2DJDA9x'
   },
   {
     name: 'Máquina de espresso do Gui',
     value: 2000,
     description: 'Para preparar o melhor café da manhã!',
-    image: '/gifts/espresso.png'
+    image: '/gifts/espresso.png',
+    mercadoPagoLink: 'https://mpago.la/1VC4Wxj'
   },
   {
     name: 'Para a Ti fazer as compras na Shein',
     value: 400,
     description: 'Para a Ti comprar roupas novas na Shein!',
-    image: '/gifts/shein.png'
+    image: '/gifts/shein.png',
+    mercadoPagoLink: 'https://mpago.la/1dRncPt'
   },
   {
     name: 'Microondas',
     value: 500,
     description: 'Para esquentar as comidinhas do dia a dia!',
-    image: '/gifts/microondas.png'
+    image: '/gifts/microondas.png',
+    mercadoPagoLink: 'https://mpago.la/2spzrrM'
   },
   {
     name: 'Viagem para Okinawa',
     value: 2000,
     description: 'Visita à terra natal dos parentes do Gui!',
-    image: '/gifts/okinawa.png'
+    image: '/gifts/okinawa.png',
+    mercadoPagoLink: 'https://mpago.la/2gVYsTK'
   },
   {
     name: 'Comprar um Sanshin para o Gui',
     value: 1400,
     description: 'Para o Gui aprender a tocar seu instrumento favorito de Okinawa!',
-    image: '/gifts/sanshin.png'
+    image: '/gifts/sanshin.png',
+    mercadoPagoLink: 'https://mpago.la/17z92JG'
   },
   {
     name: 'Guitarra pra Ti',
     value: 500,
     description: 'Uma guitarra nova para a Ti!',
-    image: '/gifts/guitarra.png'
+    image: '/gifts/guitarra.png',
+    mercadoPagoLink: 'https://mpago.la/32iPp8S'
   },
   {
     name: 'Jantar romântico na Viagem',
     value: 450,
     description: 'Para a gente aproveitar um tempo juntinhos em uma viagem!',
-    image: '/gifts/jantar.png'
+    image: '/gifts/jantar.png',
+    mercadoPagoLink: 'https://mpago.la/1WMRx4Q'
   },
   {
     name: 'Comprar meias novas para o Gui',
     value: 300,
     description: 'Para o Gui renovar seu estoque de meias, que estão pedindo socorro!',
-    image: '/gifts/meias.png'
+    image: '/gifts/meias.png',
+    mercadoPagoLink: 'https://mpago.la/1pvb9zr'
   },
   {
     name: 'Comprar a receita de Pudim da Tânia',
     value: 1000,
     description: 'O segredo que todos querem saber para fazer o melhor pudim do mundo!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/pudim.png',
+    mercadoPagoLink: 'https://mpago.la/2dajc9U'
   },
   {
     name: 'Comprar a receita de salada de macarrão da Nilce',
     value: 1000,
     description: 'A salada favorita da Ti e do Gui!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/salada.png',
+    mercadoPagoLink: 'https://mpago.la/1xCH1GR'
   },
   {
     name: 'Aspirador Robô',
     value: 1200,
     description: 'Pra aspirar os pelos do Eren que ficam pela casa!',
-    image: '/gifts/aspirador.png'
+    image: '/gifts/aspirador.png',
+    mercadoPagoLink: 'https://mpago.la/1CN3GeW'
   },
   {
     name: 'Caminhão pipa pra satisfazer a sede da Ti',
     value: 700,
     description: 'Pra matar a sede da Ti, que é insaciável!',
-    image: '/gifts/agua.png'
+    image: '/gifts/agua.png',
+    mercadoPagoLink: 'https://mpago.la/2yYvYY7'
   },
   {
     name: 'Dinheiro pro Gui renovar a coleção de camisa Pima dele',
     value: 1000,
     description: 'Para o Gui comprar camisas Pima novas, que são as favoritas dele!',
-    image: '/gifts/pima.png'
+    image: '/gifts/pima.png',
+    mercadoPagoLink: 'https://mpago.la/1x2vkCq'
   },
   {
     name: 'Dinheiro pra indenizar as pessoas que foram mordidas pelo Eren!',
     value: 1300,
     description: 'Para cobrir os custos de possíveis mordidas do Eren!',
-    image: '/gifts/mordida.png'
+    image: '/gifts/mordida.png',
+    mercadoPagoLink: 'https://mpago.la/2z4WRFd'
   },
   {
     name: 'Ingressos para shows de Metal',
     value: 600,
     description: 'Para a Ti ir nos shows de metal que ela tanto ama!',
-    image: '/gifts/metal.png'
+    image: '/gifts/metal.png',
+    mercadoPagoLink: 'https://mpago.la/1xR7fRt'
   },
   {
     name: 'Câmera para gravar pro canal da Ti e do Gui',
     value: 2500,
     description: 'Ajuda a gente a sair do CLT!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/camera.png',
+    mercadoPagoLink: 'https://mpago.la/21A1xhk'
   },
   {
     name: 'Hotel pra o Eren ficar enquanto viajamos',
     value: 2150,
     description: 'Para o Eren ficar confortável e bem cuidado enquanto estamos viajando!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/hospedagem.png',
+    mercadoPagoLink: 'https://mpago.la/2LK3ofm'
   },
   {
     name: 'Para o Gui comprar livros',
-    value: 600,
+    value: 150,
     description: 'Para o Gui encher a estante de livros dele!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/livros.png',
+    mercadoPagoLink: 'https://mpago.la/1oSBA8G'
   },
   {
     name: 'Ingressos para os shows de Kpop do Gui',
     value: 800,
     description: 'Para o Gui ir nos shows de Kpop que ele ama tanto!',
-    image: '/gifts/ramen.jpg'
+    image: '/gifts/kpop.png',
+    mercadoPagoLink: 'https://mpago.la/1okAFng'
   }
 ];
 
@@ -187,7 +208,7 @@ export default function Gifts() {
       <h2>Lista simbólica para a lua de mel</h2>
 
       <p className="sectionIntro">
-        Os valores são apenas sugestões. Você pode presentear via PIX ou cartão de crédito.
+        Os valores são apenas sugestões. Você pode presentear via PIX ou cartão de crédito(Permite parcelar) .
       </p>
 
       <div className="giftGrid">
@@ -212,7 +233,7 @@ export default function Gifts() {
             </button>
 
             <a
-              href={MERCADO_PAGO_LINK}
+              href={gift.mercadoPagoLink}
               target="_blank"
               rel="noopener noreferrer"
               className="cardPaymentButton"
@@ -241,7 +262,7 @@ export default function Gifts() {
           </button>
 
           <a
-            href={MERCADO_PAGO_LINK}
+            href={selectedGift.mercadoPagoLink}
             target="_blank"
             rel="noopener noreferrer"
             className="fullButton cardLink"
