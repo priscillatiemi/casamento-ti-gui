@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 
 const photos = [
-  '/pre-wedding/foto1.jpg',
-  '/pre-wedding/foto2.jpg',
-  '/pre-wedding/foto3.jpg',
-  '/pre-wedding/foto4.jpg',
-  '/pre-wedding/foto5.jpg',
-  '/pre-wedding/foto6.jpg',
-  '/pre-wedding/foto7.jpg',
-  '/pre-wedding/foto8.jpg',
-  '/pre-wedding/foto9.jpg',
-  '/pre-wedding/foto10.jpg'
+  '/pre-wedding/foto1.webp',
+  '/pre-wedding/foto2.webp',
+  '/pre-wedding/foto3.webp',
+  '/pre-wedding/foto4.webp',
+  '/pre-wedding/foto5.webp',
+  '/pre-wedding/foto6.webp',
+  '/pre-wedding/foto7.webp',
+  '/pre-wedding/foto8.webp',
+  '/pre-wedding/foto9.webp',
+  '/pre-wedding/foto10.webp'
 ];
 
 export default function PhotoCarousel() {
