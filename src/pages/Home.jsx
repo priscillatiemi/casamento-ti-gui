@@ -1,6 +1,7 @@
 import Countdown from '../components/Countdown.jsx';
 import RSVP from '../components/RSVP.jsx';
 import Gifts from '../components/Gifts.jsx';
+import PhotoCarousel from '../components/PhotoCarousel.jsx';
 
 export default function Home() {
   return (
@@ -15,13 +16,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="historia">
+      <section className="section storySection" id="historia">
         <p className="eyebrow dark">Nossa história</p>
+        
         <h2>Estamos preparando um dia especial</h2>
-        <p>
-          Criamos este site para reunir as informações do casamento, confirmação de presença
-          e uma lista de presentes simbólicos para a nossa lua de mel.
+        
+        <p className="storyText">
+          Criamos este site para reunir as informações do casamento,
+          confirmação de presença e uma lista de presentes simbólicos
+          para a nossa lua de mel.
         </p>
+        
+        <PhotoCarousel />
       </section>
 
       <RSVP />

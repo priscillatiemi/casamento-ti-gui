@@ -460,3 +460,134 @@ h1, h2, h3 { margin: 0 0 12px; line-height: 1.08; }
   .adminGrid { grid-template-columns: 1fr 1fr; align-items: start; }
   .section { padding: 78px 24px; }
 }
+
+/* =========================
+   NOSSA HISTÓRIA - CARROSSEL
+   ========================= */
+
+.storySection {
+  overflow: hidden;
+}
+
+.storyText {
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.photoCarousel {
+  width: min(90%, 680px);
+  margin: 30px auto 0;
+}
+
+.carouselImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--brand-soft);
+  box-shadow: var(--shadow);
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 46px;
+  height: 46px;
+  min-height: 46px;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--brand-dark);
+
+  font-size: 34px;
+  font-family: Georgia, serif;
+  line-height: 1;
+
+  box-shadow: 0 6px 20px rgba(61, 47, 50, 0.15);
+
+  z-index: 2;
+}
+
+.carouselArrowLeft {
+  left: 16px;
+}
+
+.carouselArrowRight {
+  right: 16px;
+}
+
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.carouselDot {
+  width: 9px;
+  height: 9px;
+  min-height: 9px;
+
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+
+  background: var(--line);
+
+  transition:
+    width 0.25s ease,
+    background 0.25s ease;
+}
+
+.carouselDot.active {
+  width: 26px;
+  border-radius: 999px;
+  background: var(--brand);
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .photoCarousel {
+    width: 86%;
+    max-width: 380px;
+    margin: 24px auto 0;
+  }
+
+  .carouselImageWrapper {
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+  }
+
+  .carouselArrow {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    font-size: 29px;
+  }
+
+  .carouselArrowLeft {
+    left: 10px;
+  }
+
+  .carouselArrowRight {
+    right: 10px;
+  }
+}
