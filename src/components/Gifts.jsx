@@ -1,169 +1,198 @@
 import { useState } from 'react';
 import { saveGiftIntent } from '../services/firebase.js';
 
-const PIX_KEY = 'COLOQUE_SUA_CHAVE_PIX_AQUI';
-
 const gifts = [
   {
     name: 'Passagem de Shinkansen',
     value: 1000,
     description: 'Para uma experiência inesquecível no trem-bala japonês.',
     image: '/gifts/shinkansen.png',
-    mercadoPagoLink: 'https://mpago.la/3441ncx'
+    mercadoPagoLink: 'https://mpago.la/3441ncx',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Geladeira',
     value: 3000,
     description: 'Para nos ajudar a montar nossa casa nova!',
     image: '/gifts/geladeira.png',
-    mercadoPagoLink: 'https://mpago.la/1wAvD7A'
+    mercadoPagoLink: 'https://mpago.la/1wAvD7A',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Air Fryer',
     value: 800,
     description: 'Para facilitar a nossa rotina na cozinha.',
     image: '/gifts/airfryer.png',
-    mercadoPagoLink: 'https://mpago.la/1z3mhC9'
+    mercadoPagoLink: 'https://mpago.la/1z3mhC9',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Pacote de ração do Eren',
     value: 200,
     description: 'Para garantir a felicidade do nosso amado Eren!',
     image: '/gifts/racao.png',
-    mercadoPagoLink: 'https://mpago.la/2DJDA9x'
+    mercadoPagoLink: 'https://mpago.la/2DJDA9x',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Máquina de espresso do Gui',
     value: 2000,
     description: 'Para preparar o melhor café da manhã!',
     image: '/gifts/espresso.png',
-    mercadoPagoLink: 'https://mpago.la/1VC4Wxj'
+    mercadoPagoLink: 'https://mpago.la/1VC4Wxj',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Para a Ti fazer as compras na Shein',
     value: 400,
     description: 'Para a Ti comprar roupas novas na Shein!',
     image: '/gifts/shein.png',
-    mercadoPagoLink: 'https://mpago.la/1dRncPt'
+    mercadoPagoLink: 'https://mpago.la/1dRncPt',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Microondas',
     value: 500,
     description: 'Para esquentar as comidinhas do dia a dia!',
     image: '/gifts/microondas.png',
-    mercadoPagoLink: 'https://mpago.la/2spzrrM'
+    mercadoPagoLink: 'https://mpago.la/2spzrrM',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Viagem para Okinawa',
     value: 2000,
     description: 'Visita à terra natal dos parentes do Gui!',
     image: '/gifts/okinawa.png',
-    mercadoPagoLink: 'https://mpago.la/2gVYsTK'
+    mercadoPagoLink: 'https://mpago.la/2gVYsTK',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Comprar um Sanshin para o Gui',
     value: 1400,
     description: 'Para o Gui aprender a tocar seu instrumento favorito de Okinawa!',
     image: '/gifts/sanshin.png',
-    mercadoPagoLink: 'https://mpago.la/17z92JG'
+    mercadoPagoLink: 'https://mpago.la/17z92JG',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Guitarra pra Ti',
     value: 500,
     description: 'Uma guitarra nova para a Ti!',
     image: '/gifts/guitarra.png',
-    mercadoPagoLink: 'https://mpago.la/32iPp8S'
+    mercadoPagoLink: 'https://mpago.la/32iPp8S',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Jantar romântico na Viagem',
     value: 450,
     description: 'Para a gente aproveitar um tempo juntinhos em uma viagem!',
     image: '/gifts/jantar.png',
-    mercadoPagoLink: 'https://mpago.la/1WMRx4Q'
+    mercadoPagoLink: 'https://mpago.la/1WMRx4Q',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Comprar meias novas para o Gui',
     value: 300,
     description: 'Para o Gui renovar seu estoque de meias, que estão pedindo socorro!',
     image: '/gifts/meias.png',
-    mercadoPagoLink: 'https://mpago.la/1pvb9zr'
+    mercadoPagoLink: 'https://mpago.la/1pvb9zr',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Comprar a receita de Pudim da Tânia',
     value: 1000,
     description: 'O segredo que todos querem saber para fazer o melhor pudim do mundo!',
     image: '/gifts/pudim.png',
-    mercadoPagoLink: 'https://mpago.la/2dajc9U'
+    mercadoPagoLink: 'https://mpago.la/2dajc9U',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Comprar a receita de salada de macarrão da Nilce',
     value: 1000,
     description: 'A salada favorita da Ti e do Gui!',
     image: '/gifts/salada.png',
-    mercadoPagoLink: 'https://mpago.la/1xCH1GR'
+    mercadoPagoLink: 'https://mpago.la/1xCH1GR',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Aspirador Robô',
     value: 1200,
     description: 'Pra aspirar os pelos do Eren que ficam pela casa!',
     image: '/gifts/aspirador.png',
-    mercadoPagoLink: 'https://mpago.la/1CN3GeW'
+    mercadoPagoLink: 'https://mpago.la/1CN3GeW',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Caminhão pipa pra satisfazer a sede da Ti',
     value: 700,
     description: 'Pra matar a sede da Ti, que é insaciável!',
     image: '/gifts/agua.png',
-    mercadoPagoLink: 'https://mpago.la/2yYvYY7'
+    mercadoPagoLink: 'https://mpago.la/2yYvYY7',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Dinheiro pro Gui renovar a coleção de camisa Pima dele',
     value: 1000,
     description: 'Para o Gui comprar camisas Pima novas, que são as favoritas dele!',
     image: '/gifts/pima.png',
-    mercadoPagoLink: 'https://mpago.la/1x2vkCq'
+    mercadoPagoLink: 'https://mpago.la/1x2vkCq',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Dinheiro pra indenizar as pessoas que foram mordidas pelo Eren!',
     value: 1300,
     description: 'Para cobrir os custos de possíveis mordidas do Eren!',
     image: '/gifts/mordida.png',
-    mercadoPagoLink: 'https://mpago.la/2z4WRFd'
+    mercadoPagoLink: 'https://mpago.la/2z4WRFd',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Ingressos para shows de Metal',
     value: 600,
     description: 'Para a Ti ir nos shows de metal que ela tanto ama!',
     image: '/gifts/metal.png',
-    mercadoPagoLink: 'https://mpago.la/1xR7fRt'
+    mercadoPagoLink: 'https://mpago.la/1xR7fRt',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Câmera para gravar pro canal da Ti e do Gui',
     value: 2500,
     description: 'Ajuda a gente a sair do CLT!',
     image: '/gifts/camera.png',
-    mercadoPagoLink: 'https://mpago.la/21A1xhk'
+    mercadoPagoLink: 'https://mpago.la/21A1xhk',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Hotel pra o Eren ficar enquanto viajamos',
     value: 2150,
     description: 'Para o Eren ficar confortável e bem cuidado enquanto estamos viajando!',
     image: '/gifts/hospedagem.png',
-    mercadoPagoLink: 'https://mpago.la/2LK3ofm'
+    mercadoPagoLink: 'https://mpago.la/2LK3ofm',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Para o Gui comprar livros',
     value: 150,
     description: 'Para o Gui encher a estante de livros dele!',
     image: '/gifts/livros.png',
-    mercadoPagoLink: 'https://mpago.la/1oSBA8G'
+    mercadoPagoLink: 'https://mpago.la/1oSBA8G',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
     name: 'Ingressos para os shows de Kpop do Gui',
     value: 800,
     description: 'Para o Gui ir nos shows de Kpop que ele ama tanto!',
     image: '/gifts/kpop.png',
-    mercadoPagoLink: 'https://mpago.la/1okAFng'
+    mercadoPagoLink: 'https://mpago.la/1okAFng',
+    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+  },
+  {
+    name: 'Outros valores',
+    value: 0,
+    description: 'Para quem quiser contribuir com outros valores, que serão muito bem-vindos! Agradecemos demais pelo carinho e apoio!',
+    image: '/gifts/outros.png',
+    mercadoPagoLink: 'https://link.mercadopago.com.br/casamentotg',
+    pixLink: 'https://nubank.com.br/cobrar/d8ctm/6aa0bb45-dc0f-4a5a-a06a-edf641e8bbc3'
   }
 ];
 
@@ -172,15 +201,6 @@ export default function Gifts() {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [feedback, setFeedback] = useState('');
-
-  async function copyPix() {
-    try {
-      await navigator.clipboard.writeText(PIX_KEY);
-      setFeedback('Chave PIX copiada!');
-    } catch {
-      setFeedback('Não foi possível copiar automaticamente. Copie a chave manualmente.');
-    }
-  }
 
   async function saveIntent() {
     if (!selectedGift) return;
@@ -223,14 +243,14 @@ export default function Gifts() {
             <p>{gift.description}</p>
             <strong>R$ {gift.value}</strong>
 
-            <button
-              onClick={() => {
-                setSelectedGift(gift);
-                setFeedback('');
-              }}
+            <a
+              href={gift.pixLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pixPaymentButton"
             >
               Presentear via PIX
-            </button>
+            </a>
 
             <a
               href={gift.mercadoPagoLink}

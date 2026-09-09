@@ -18,15 +18,13 @@ export default function Home() {
 
       <section className="section storySection" id="historia">
         <p className="eyebrow dark">Nossa história</p>
-        
+
         <h2>Estamos preparando um dia especial</h2>
-        
+
         <p className="storyText">
-          Criamos este site para reunir as informações do casamento,
-          confirmação de presença e uma lista de presentes simbólicos
-          para a nossa lua de mel.
+          Nossa história começou em 2019, quando nos conhecemos em um evento na comunidade japonesa. Desde então, compartilhamos momentos incríveis, viagens inesquecíveis e construímos uma vida juntos. Agora, estamos ansiosos para celebrar nosso amor com todos vocês no dia do nosso casamento.
         </p>
-        
+
         <PhotoCarousel />
       </section>
 
