@@ -225,7 +225,7 @@ export default function Gifts() {
   return (
     <section className="section gifts" id="presentes">
       <p className="eyebrow dark">Presentes</p>
-      <h2>Lista simbólica para a lua de mel</h2>
+      <h2>Lista simbólica de presentes</h2>
 
       <p className="sectionIntro">
         Os valores são apenas sugestões. Você pode presentear via PIX ou cartão de crédito(Permite parcelar) .
