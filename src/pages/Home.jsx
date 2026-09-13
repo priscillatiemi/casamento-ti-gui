@@ -43,15 +43,19 @@ export default function Home() {
           <article className="infoCard">
             <span className="infoIcon">⛪</span>
             <p>Cerimônia</p>
-            <h3>19h</h3>
-            <small>Pedimos que cheguem com alguns minutinhos de antecedência.</small>
+            <h3>18h30</h3>
+
+            <small><strong>Capela Pietra</strong><br />
+            <strong>Villagio Europeo - Rua da Mooca, 1415</strong><br />
+            Pedimos que cheguem com alguns minutinhos de antecedência.</small>
           </article>
         
           <article className="infoCard">
-            <span className="infoIcon">📍</span>
-            <p>Local</p>
-            <h3>Villagio Europeu</h3>
-            <small>Mooca - São Paulo</small>
+            <span className="infoIcon">🎉</span>
+            <p>Festa</p>
+            <h3>Mansão Luca</h3>
+            <small>Cerimônia e Festa serão realizados no mesmo local<br />
+              <strong>Villagio Europeo - Rua da Mooca, 1415</strong></small>
           </article>
         
           <article className="infoCard">
@@ -64,7 +68,7 @@ export default function Home() {
           <article className="infoCard">
             <span className="infoIcon">👗</span>
             <p>Traje</p>
-            <h3>Social Esportivo</h3>
+            <h3>Social Completo</h3>
             <small>Escolha algo elegante e confortável para celebrar conosco.</small>
           </article>
         </div>

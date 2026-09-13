@@ -56,36 +56,37 @@ export function normalizeName(name) {
     .replace(/\s+/g, ' ');
 }
 
+function getSearchNames(name) {
+  const normalized = normalizeName(name);
+
+  if (!normalized) {
+    return [];
+  }
+
+  const firstName = normalized.split(' ')[0];
+
+  return [
+    normalized,
+    firstName
+  ];
+}
+
 export async function searchGuestByName(name) {
   const normalized = normalizeName(name);
 
   const guestsRef = collection(db, 'convidados');
 
-  const exactQuery = query(
+  const guestQuery = query(
     guestsRef,
-    where('nomeBusca', '==', normalized)
+    where('nomesBusca', 'array-contains', normalized)
   );
 
-  const snapshot = await getDocs(exactQuery);
+  const snapshot = await getDocs(guestQuery);
 
-  if (!snapshot.empty) {
-    return snapshot.docs.map((item) => ({
-      id: item.id,
-      ...item.data()
-    }));
-  }
-
-  const allSnapshot = await getDocs(guestsRef);
-
-  const allGuests = allSnapshot.docs.map((item) => ({
+  return snapshot.docs.map((item) => ({
     id: item.id,
     ...item.data()
   }));
-
-  return allGuests.filter((guest) => {
-    const guestName = normalizeName(guest.nome);
-    return guestName.includes(normalized) || normalized.includes(guestName);
-  });
 }
 
 export async function confirmGuest(guestId, payload) {
@@ -100,17 +101,37 @@ export async function confirmGuest(guestId, payload) {
 }
 
 export async function addGuest(payload) {
+  const allNames = [
+    payload.nome,
+    ...payload.acompanhantes
+  ];
+
+  const nomesBusca = [
+    ...new Set(
+      allNames.flatMap((nome) => getSearchNames(nome))
+    )
+  ];
+
   return addDoc(collection(db, 'convidados'), {
     nome: payload.nome,
+
     nomeBusca: normalizeName(payload.nome),
+
+    nomesBusca,
+
     grupo: payload.grupo || '',
+
     confirmado: false,
+
     observacao: '',
+
     acompanhantes: payload.acompanhantes.map((nome) => ({
       nome,
       confirmado: false
     })),
+
     criadoEm: serverTimestamp(),
+
     atualizadoEm: serverTimestamp()
   });
 }

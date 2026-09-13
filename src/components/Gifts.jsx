@@ -225,10 +225,16 @@ export default function Gifts() {
   return (
     <section className="section gifts" id="presentes">
       <p className="eyebrow dark">Presentes</p>
-      <h2>Lista simbólica de presentes</h2>
+      <h2>Lista de presentes</h2>
 
       <p className="sectionIntro">
-        Os valores são apenas sugestões. Você pode presentear via PIX ou cartão de crédito(Permite parcelar) .
+        Os valores são apenas sugestões. Você pode presentear via PIX ou cartão de crédito.
+      </p>
+      <p>
+        Queridos familiares e amigos, para quem quiser nos presentear deixamos como contribuição preferencialvia PIX, ficaremos muito gratos! Agradecemos demais pelo carinho e apoio!
+      </p>
+      <p>
+        Chave PIX: tiemiakemi@hotmail.com
       </p>
 
       <div className="giftGrid">
