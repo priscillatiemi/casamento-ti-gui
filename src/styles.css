@@ -606,3 +606,250 @@ h1, h2, h3 { margin: 0 0 12px; line-height: 1.08; }
     right: 10px;
   }
 }
+
+/* =========================================
+   DISPONIBILIDADE SIMBÓLICA DOS PRESENTES
+   ========================================= */
+
+.giftAvailability {
+  display: block;
+  width: fit-content;
+  margin: 4px 0 14px;
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background: #fff0f4;
+  color: var(--brand-dark);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.giftAvailabilityPopular {
+  background: var(--brand-soft);
+}
+
+.giftStillAvailable {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+
+/* =========================================
+   CONFIRMAÇÃO DO PRESENTE
+   ========================================= */
+
+.giftConfirmationPanel {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: grid;
+  place-items: center;
+
+  padding: 20px;
+
+  background: rgba(61, 47, 50, 0.48);
+
+  backdrop-filter: blur(5px);
+}
+
+.giftConfirmationContent {
+  width: min(100%, 460px);
+
+  padding: 28px;
+
+  border: 1px solid var(--line);
+  border-radius: 28px;
+
+  background: var(--paper);
+
+  box-shadow:
+    0 24px 70px rgba(61, 47, 50, 0.25);
+
+  text-align: center;
+}
+
+.giftConfirmationHeart {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 34px;
+}
+
+.giftConfirmationContent h3 {
+  margin: 0 0 12px;
+
+  color: var(--text);
+
+  font-family: Georgia, serif;
+  font-size: 26px;
+}
+
+.giftConfirmationContent p {
+  margin: 8px 0;
+
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.giftConfirmationHint {
+  padding: 10px 12px;
+
+  border-radius: 14px;
+
+  background: #fff7f9;
+
+  font-size: 12px;
+}
+
+.giftCancelButton {
+  width: 100%;
+
+  margin-top: 10px;
+
+  border: 0;
+}
+
+.giftFeedback {
+  position: fixed;
+
+  left: 50%;
+  bottom: 24px;
+
+  z-index: 10000;
+
+  width: min(
+    calc(100% - 32px),
+    460px
+  );
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 14px 16px;
+
+  text-align: left;
+
+  box-shadow:
+    0 10px 30px rgba(61, 47, 50, 0.18);
+}
+
+.giftFeedback span {
+  flex: 1;
+}
+
+.giftFeedbackClose {
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--brand-dark);
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.giftFeedbackClose:hover {
+  background: var(--brand-soft);
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .giftConfirmationContent {
+    padding: 24px 18px;
+    border-radius: 24px;
+  }
+
+  .giftConfirmationContent h3 {
+    font-size: 23px;
+  }
+
+  .giftAvailability {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================
+   PRESENTE ESGOTADO
+   ========================================= */
+
+.giftCardSoldOut {
+  position: relative;
+
+  background: #f3f1f2;
+  border-color: #d8d3d5;
+
+  box-shadow: none;
+
+  opacity: 0.72;
+
+  filter: grayscale(0.75);
+}
+
+.giftCardSoldOut .giftImage {
+  filter: grayscale(1);
+}
+
+.giftCardSoldOut h3,
+.giftCardSoldOut p,
+.giftCardSoldOut strong {
+  color: #8d8789;
+}
+
+.giftAvailabilitySoldOut {
+  background: #dedadc;
+  color: #6f696b;
+}
+
+.giftSoldOutMessage {
+  width: 100%;
+
+  margin-top: 14px;
+  padding: 13px 16px;
+
+  border-radius: 999px;
+
+  background: #dedadc;
+  color: #6f696b;
+
+  font-weight: 800;
+  text-align: center;
+
+  cursor: not-allowed;
+}
+

@@ -175,3 +175,21 @@ export async function getGiftIntents() {
     ...item.data()
   }));
 }
+
+export async function confirmGiftReceived(giftId) {
+  return addDoc(collection(db, 'presentesConfirmados'), {
+    giftId,
+    criadoEm: serverTimestamp()
+  });
+}
+
+export async function getGiftConfirmations() {
+  const snapshot = await getDocs(
+    collection(db, 'presentesConfirmados')
+  );
+
+  return snapshot.docs.map((item) => ({
+    id: item.id,
+    ...item.data()
+  }));
+}

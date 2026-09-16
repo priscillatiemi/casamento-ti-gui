@@ -1,8 +1,15 @@
-import { useState } from 'react';
-import { saveGiftIntent } from '../services/firebase.js';
+import { useEffect, useState } from 'react';
+
+import {
+  confirmGiftReceived,
+  getGiftConfirmations
+} from '../services/firebase.js';
+
+const INITIAL_QUOTAS = 4;
 
 const gifts = [
   {
+    id: 'shinkansen',
     name: 'Passagem de Shinkansen',
     value: 1000,
     description: 'Para uma experiência inesquecível no trem-bala japonês.',
@@ -11,6 +18,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'geladeira',
     name: 'Geladeira',
     value: 3000,
     description: 'Para nos ajudar a montar nossa casa nova!',
@@ -19,6 +27,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'air-fryer',
     name: 'Air Fryer',
     value: 800,
     description: 'Para facilitar a nossa rotina na cozinha.',
@@ -27,6 +36,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'racao-eren',
     name: 'Pacote de ração do Eren',
     value: 200,
     description: 'Para garantir a felicidade do nosso amado Eren!',
@@ -35,6 +45,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'espresso',
     name: 'Máquina de espresso do Gui',
     value: 2000,
     description: 'Para preparar o melhor café da manhã!',
@@ -43,6 +54,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'shein',
     name: 'Para a Ti fazer as compras na Shein',
     value: 400,
     description: 'Para a Ti comprar roupas novas na Shein!',
@@ -51,6 +63,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'microondas',
     name: 'Microondas',
     value: 500,
     description: 'Para esquentar as comidinhas do dia a dia!',
@@ -59,6 +72,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'okinawa',
     name: 'Viagem para Okinawa',
     value: 2000,
     description: 'Visita à terra natal dos parentes do Gui!',
@@ -67,6 +81,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'sanshin',
     name: 'Comprar um Sanshin para o Gui',
     value: 1400,
     description: 'Para o Gui aprender a tocar seu instrumento favorito de Okinawa!',
@@ -75,6 +90,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'guitarra',
     name: 'Guitarra pra Ti',
     value: 500,
     description: 'Uma guitarra nova para a Ti!',
@@ -83,6 +99,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'jantar',
     name: 'Jantar romântico na Viagem',
     value: 450,
     description: 'Para a gente aproveitar um tempo juntinhos em uma viagem!',
@@ -91,6 +108,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'meias',
     name: 'Comprar meias novas para o Gui',
     value: 300,
     description: 'Para o Gui renovar seu estoque de meias, que estão pedindo socorro!',
@@ -99,6 +117,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'pudim',
     name: 'Comprar a receita de Pudim da Tânia',
     value: 1000,
     description: 'O segredo que todos querem saber para fazer o melhor pudim do mundo!',
@@ -107,6 +126,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'salada',
     name: 'Comprar a receita de salada de macarrão da Nilce',
     value: 1000,
     description: 'A salada favorita da Ti e do Gui!',
@@ -115,6 +135,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'aspirador',
     name: 'Aspirador Robô',
     value: 1200,
     description: 'Pra aspirar os pelos do Eren que ficam pela casa!',
@@ -123,6 +144,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'agua',
     name: 'Caminhão pipa pra satisfazer a sede da Ti',
     value: 700,
     description: 'Pra matar a sede da Ti, que é insaciável!',
@@ -131,6 +153,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'pima',
     name: 'Dinheiro pro Gui renovar a coleção de camisa Pima dele',
     value: 1000,
     description: 'Para o Gui comprar camisas Pima novas, que são as favoritas dele!',
@@ -139,6 +162,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'mordida',
     name: 'Dinheiro pra indenizar as pessoas que foram mordidas pelo Eren!',
     value: 1300,
     description: 'Para cobrir os custos de possíveis mordidas do Eren!',
@@ -147,6 +171,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'metal',
     name: 'Ingressos para shows de Metal',
     value: 600,
     description: 'Para a Ti ir nos shows de metal que ela tanto ama!',
@@ -155,6 +180,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'camera',
     name: 'Câmera para gravar pro canal da Ti e do Gui',
     value: 2500,
     description: 'Ajuda a gente a sair do CLT!',
@@ -163,6 +189,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'hospedagem',
     name: 'Hotel pra o Eren ficar enquanto viajamos',
     value: 2150,
     description: 'Para o Eren ficar confortável e bem cuidado enquanto estamos viajando!',
@@ -171,6 +198,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'livros',
     name: 'Para o Gui comprar livros',
     value: 150,
     description: 'Para o Gui encher a estante de livros dele!',
@@ -179,6 +207,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'kpop',
     name: 'Ingressos para os shows de Kpop do Gui',
     value: 800,
     description: 'Para o Gui ir nos shows de Kpop que ele ama tanto!',
@@ -187,6 +216,7 @@ const gifts = [
     pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
   },
   {
+    id: 'outros',
     name: 'Outros valores',
     value: 0,
     description: 'Para quem quiser contribuir com outros valores, que serão muito bem-vindos! Agradecemos demais pelo carinho e apoio!',
@@ -196,125 +226,348 @@ const gifts = [
   }
 ];
 
+function isLimitedGift(gift) {
+  return gift.value > 0 && gift.value <= 500;
+}
+
 export default function Gifts() {
-  const [selectedGift, setSelectedGift] = useState(null);
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
+  const [giftCounts, setGiftCounts] = useState({});
+  const [pendingGift, setPendingGift] = useState(null);
   const [feedback, setFeedback] = useState('');
+  const [confirming, setConfirming] = useState(false);
 
-  async function saveIntent() {
-    if (!selectedGift) return;
-
+  async function loadConfirmations() {
     try {
-      await saveGiftIntent({
-        presente: selectedGift.name,
-        valor: selectedGift.value,
-        nome: name,
-        mensagem: message
+      const confirmations = await getGiftConfirmations();
+
+      const counts = {};
+
+      confirmations.forEach((confirmation) => {
+        counts[confirmation.giftId] =
+          (counts[confirmation.giftId] || 0) + 1;
       });
 
-      setFeedback('Mensagem salva. Muito obrigada pelo carinho!');
-      setName('');
-      setMessage('');
+      setGiftCounts(counts);
     } catch (error) {
       console.error(error);
-      setFeedback('Não foi possível salvar a mensagem, mas você ainda pode fazer o PIX diretamente.');
+    }
+  }
+
+  useEffect(() => {
+    loadConfirmations();
+  }, []);
+
+  function showFeedback(message) {
+    setFeedback(message);
+
+    setTimeout(() => {
+      setFeedback('');
+    }, 4000);
+  }
+
+  function handlePaymentClick(gift) {
+    if (!isLimitedGift(gift)) {
+      return;
+    }
+
+    const confirmed = giftCounts[gift.id] || 0;
+
+    if (confirmed >= INITIAL_QUOTAS) {
+      return;
+    }
+
+    setPendingGift(gift);
+    setFeedback('');
+  }
+
+  async function handleConfirmGift() {
+    if (!pendingGift) {
+      return;
+    }
+
+    /*
+     * Confere novamente antes de registrar.
+     *
+     * Isso evita que o próprio navegador confirme
+     * um presente que já apareceu como esgotado.
+     */
+    const currentCount =
+      giftCounts[pendingGift.id] || 0;
+
+    if (currentCount >= INITIAL_QUOTAS) {
+      setPendingGift(null);
+
+      showFeedback(
+        'Este presente já esgotou 💗'
+      );
+
+      return;
+    }
+
+    const storageKey =
+      `presente-confirmado-${pendingGift.id}`;
+
+    const alreadyConfirmed =
+      localStorage.getItem(storageKey);
+
+    if (alreadyConfirmed) {
+      setPendingGift(null);
+
+      showFeedback(
+        'Você já confirmou este presente neste dispositivo 💗'
+      );
+
+      return;
+    }
+
+    try {
+      setConfirming(true);
+      setFeedback('');
+
+      await confirmGiftReceived(
+        pendingGift.id
+      );
+
+      localStorage.setItem(
+        storageKey,
+        'true'
+      );
+
+      /*
+       * Atualiza imediatamente na tela.
+       */
+      setGiftCounts((current) => ({
+        ...current,
+        [pendingGift.id]:
+          (current[pendingGift.id] || 0) + 1
+      }));
+
+      setPendingGift(null);
+
+      showFeedback(
+        'Presente confirmado! Muito obrigada pelo carinho 💗'
+      );
+
+    } catch (error) {
+      console.error(error);
+
+      showFeedback(
+        'Não foi possível registrar agora. Tente novamente em alguns instantes.'
+      );
+
+    } finally {
+      setConfirming(false);
     }
   }
 
   return (
-    <section className="section gifts" id="presentes">
-      <p className="eyebrow dark">Presentes</p>
+    <section
+      className="section gifts"
+      id="presentes"
+    >
+      <p className="eyebrow dark">
+        Presentes
+      </p>
+
       <h2>Lista de presentes</h2>
 
       <p className="sectionIntro">
-        Os valores são apenas sugestões. Você pode presentear via PIX ou cartão de crédito.
+        Os valores são apenas sugestões.
+        Você pode presentear via PIX ou cartão de crédito.
       </p>
+
       <p>
-        Queridos familiares e amigos, para quem quiser nos presentear deixamos como contribuição preferencialvia PIX, ficaremos muito gratos! Agradecemos demais pelo carinho e apoio!
+        Queridos familiares e amigos, para quem quiser nos presentear,
+        deixamos como contribuição preferencial o PIX.
+        Ficaremos muito gratos! Agradecemos demais pelo carinho e apoio!
       </p>
+
       <p>
         Chave PIX: tiemiakemi@hotmail.com
       </p>
 
       <div className="giftGrid">
-        {gifts.map((gift) => (
-          <article className="giftCard" key={gift.name}>
-            <h3>{gift.name}</h3>
+        {gifts.map((gift) => {
+          const limited =
+            isLimitedGift(gift);
+
+          const confirmed =
+            giftCounts[gift.id] || 0;
+
+          const remaining =
+            Math.max(
+              INITIAL_QUOTAS - confirmed,
+              0
+            );
+
+          const soldOut =
+            limited && remaining === 0;
+
+          return (
+            <article
+              className={`giftCard ${
+                soldOut
+                  ? 'giftCardSoldOut'
+                  : ''
+              }`}
+              key={gift.id}
+            >
+              <h3>{gift.name}</h3>
+
               <img
                 src={gift.image}
                 alt={gift.name}
                 className="giftImage"
               />
-            <p>{gift.description}</p>
-            <strong>R$ {gift.value}</strong>
 
-            <a
-              href={gift.pixLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pixPaymentButton"
-            >
-              Presentear via PIX
-            </a>
+              <p>{gift.description}</p>
 
-            <a
-              href={gift.mercadoPagoLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cardPaymentButton"
-            >
-              Pagar com cartão
-            </a>
-          </article>
-        ))}
+              {gift.value > 0 ? (
+                <strong>
+                  R$ {gift.value}
+                </strong>
+              ) : (
+                <strong>
+                  Escolha o valor
+                </strong>
+              )}
+
+              {limited && (
+                <div
+                  className={
+                    soldOut
+                      ? 'giftAvailability giftAvailabilitySoldOut'
+                      : 'giftAvailability'
+                  }
+                >
+                  {remaining >= 3 && (
+                    <>
+                      💗 {remaining} cotas disponíveis
+                    </>
+                  )}
+
+                  {remaining === 2 && (
+                    <>
+                      💕 Apenas 2 cotas disponíveis
+                    </>
+                  )}
+
+                  {remaining === 1 && (
+                    <>
+                      🔥 Última cota disponível!
+                    </>
+                  )}
+
+                  {remaining === 0 && (
+                    <>
+                      💗 Este presente já esgotou
+                    </>
+                  )}
+                </div>
+              )}
+
+              {!soldOut ? (
+                <>
+                  <a
+                    href={gift.pixLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pixPaymentButton"
+                    onClick={() =>
+                      handlePaymentClick(gift)
+                    }
+                  >
+                    Presentear via PIX
+                  </a>
+
+                  <a
+                    href={gift.mercadoPagoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cardPaymentButton"
+                    onClick={() =>
+                      handlePaymentClick(gift)
+                    }
+                  >
+                    Pagar com cartão
+                  </a>
+                </>
+              ) : (
+                <div className="giftSoldOutMessage">
+                  Presente esgotado 💗
+                </div>
+              )}
+            </article>
+          );
+        })}
       </div>
 
-      {selectedGift && (
-        <div className="pixPanel">
-          <h3>{selectedGift.name}</h3>
+      {pendingGift && (
+        <div className="giftConfirmationPanel">
+          <div className="giftConfirmationContent">
 
-          <p>
-            Valor sugerido: <strong>R$ {selectedGift.value}</strong>
-          </p>
+            <span className="giftConfirmationHeart">
+              💗
+            </span>
 
-          <div className="pixKey">
-            <span>Chave PIX</span>
-            <strong>{PIX_KEY}</strong>
-          </div>
+            <h3>
+              Já concluiu seu pagamento?
+            </h3>
 
-          <button className="fullButton" onClick={copyPix}>
-            Copiar chave PIX
-          </button>
+            <p>
+              Se você já realizou o PIX ou
+              concluiu o pagamento no cartão para
+              <strong> {pendingGift.name}</strong>,
+              confirme abaixo.
+            </p>
 
-          <a
-            href={selectedGift.mercadoPagoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fullButton cardLink"
-          >
-            Pagar este presente com cartão
-          </a>
+            <p className="giftConfirmationHint">
+              Essa confirmação serve para
+              atualizar a disponibilidade
+              da nossa lista.
+            </p>
 
-          <div className="giftMessage">
-            <input
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              placeholder="Seu nome opcional"
-            />
-
-            <textarea
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
-              placeholder="Mensagem opcional para os noivos"
-            />
-
-            <button className="secondaryButton" onClick={saveIntent}>
-              Salvar mensagem
+            <button
+              type="button"
+              className="fullButton"
+              disabled={confirming}
+              onClick={handleConfirmGift}
+            >
+              {confirming
+                ? 'Confirmando...'
+                : '💗 Sim, já presenteei!'}
             </button>
-          </div>
 
-          {feedback && <p className="notice">{feedback}</p>}
+            <button
+              type="button"
+              className="secondaryButton giftCancelButton"
+              disabled={confirming}
+              onClick={() => {
+                setPendingGift(null);
+                setFeedback('');
+              }}
+            >
+              Ainda não
+            </button>
+
+          </div>
+        </div>
+      )}
+
+      {feedback && (
+        <div className="notice giftFeedback">
+          <span>{feedback}</span>
+
+          <button
+            type="button"
+            className="giftFeedbackClose"
+            onClick={() =>
+              setFeedback('')
+            }
+            aria-label="Fechar mensagem"
+          >
+            ×
+          </button>
         </div>
       )}
     </section>
