@@ -15,7 +15,7 @@ const gifts = [
     description: 'Para uma experiência inesquecível no trem-bala japonês.',
     image: '/gifts/shinkansen.png',
     mercadoPagoLink: 'https://mpago.la/3441ncx',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/d8ctm/6ab1836d-680a-4751-be90-8372ab6df06d'
   },
   {
     id: 'geladeira',
@@ -24,7 +24,7 @@ const gifts = [
     description: 'Para nos ajudar a montar nossa casa nova!',
     image: '/gifts/geladeira.png',
     mercadoPagoLink: 'https://mpago.la/1wAvD7A',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab0213e-bbef-4382-89ac-2cf874fb472c'
   },
   {
     id: 'air-fryer',
@@ -33,7 +33,7 @@ const gifts = [
     description: 'Para facilitar a nossa rotina na cozinha.',
     image: '/gifts/airfryer.png',
     mercadoPagoLink: 'https://mpago.la/1z3mhC9',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab0218a-ff28-41a0-8f7a-a0f42ff684f1'
   },
   {
     id: 'racao-eren',
@@ -42,7 +42,7 @@ const gifts = [
     description: 'Para garantir a felicidade do nosso amado Eren!',
     image: '/gifts/racao.png',
     mercadoPagoLink: 'https://mpago.la/2DJDA9x',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab021b5-6f57-4363-a887-d9e1ef07ecf9'
   },
   {
     id: 'espresso',
@@ -51,7 +51,7 @@ const gifts = [
     description: 'Para preparar o melhor café da manhã!',
     image: '/gifts/espresso.png',
     mercadoPagoLink: 'https://mpago.la/1VC4Wxj',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02201-e16e-450a-8a2b-5975d037930a'
   },
   {
     id: 'shein',
@@ -60,7 +60,7 @@ const gifts = [
     description: 'Para a Ti comprar roupas novas na Shein!',
     image: '/gifts/shein.png',
     mercadoPagoLink: 'https://mpago.la/1dRncPt',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02216-3834-4732-89db-a94395561793'
   },
   {
     id: 'microondas',
@@ -69,7 +69,7 @@ const gifts = [
     description: 'Para esquentar as comidinhas do dia a dia!',
     image: '/gifts/microondas.png',
     mercadoPagoLink: 'https://mpago.la/2spzrrM',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02224-0b40-4fc5-acad-b76d9a35dc4b'
   },
   {
     id: 'okinawa',
@@ -78,7 +78,7 @@ const gifts = [
     description: 'Visita à terra natal dos parentes do Gui!',
     image: '/gifts/okinawa.png',
     mercadoPagoLink: 'https://mpago.la/2gVYsTK',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02201-e16e-450a-8a2b-5975d037930a'
   },
   {
     id: 'sanshin',
@@ -87,7 +87,7 @@ const gifts = [
     description: 'Para o Gui aprender a tocar seu instrumento favorito de Okinawa!',
     image: '/gifts/sanshin.png',
     mercadoPagoLink: 'https://mpago.la/17z92JG',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/d8ctm/6ab18381-6d0a-417a-8668-3dfaf6d0c39c'
   },
   {
     id: 'guitarra',
@@ -96,7 +96,7 @@ const gifts = [
     description: 'Uma guitarra nova para a Ti!',
     image: '/gifts/guitarra.png',
     mercadoPagoLink: 'https://mpago.la/32iPp8S',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02224-0b40-4fc5-acad-b76d9a35dc4b'
   },
   {
     id: 'jantar',
@@ -105,7 +105,7 @@ const gifts = [
     description: 'Para a gente aproveitar um tempo juntinhos em uma viagem!',
     image: '/gifts/jantar.png',
     mercadoPagoLink: 'https://mpago.la/1WMRx4Q',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02277-bd32-4c12-ba27-3e358aea4e29'
   },
   {
     id: 'meias',
@@ -114,7 +114,7 @@ const gifts = [
     description: 'Para o Gui renovar seu estoque de meias, que estão pedindo socorro!',
     image: '/gifts/meias.png',
     mercadoPagoLink: 'https://mpago.la/1pvb9zr',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab0228a-05b2-4e0d-bdb8-6b0b8dc88a06'
   },
   {
     id: 'pudim',
@@ -123,16 +123,16 @@ const gifts = [
     description: 'O segredo que todos querem saber para fazer o melhor pudim do mundo!',
     image: '/gifts/pudim.png',
     mercadoPagoLink: 'https://mpago.la/2dajc9U',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/d8ctm/6ab1836d-680a-4751-be90-8372ab6df06d'
   },
   {
     id: 'salada',
     name: 'Comprar a receita de salada de macarrão da Nilce',
     value: 1000,
     description: 'A salada favorita da Ti e do Gui!',
-    image: '/gifts/salada.png',
+    image: '/gifts/salada.jpeg',
     mercadoPagoLink: 'https://mpago.la/1xCH1GR',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/d8ctm/6ab1836d-680a-4751-be90-8372ab6df06d'
   },
   {
     id: 'aspirador',
@@ -141,7 +141,7 @@ const gifts = [
     description: 'Pra aspirar os pelos do Eren que ficam pela casa!',
     image: '/gifts/aspirador.png',
     mercadoPagoLink: 'https://mpago.la/1CN3GeW',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab022cf-8df5-4f62-bec4-f3c206e91c65'
   },
   {
     id: 'agua',
@@ -150,7 +150,7 @@ const gifts = [
     description: 'Pra matar a sede da Ti, que é insaciável!',
     image: '/gifts/agua.png',
     mercadoPagoLink: 'https://mpago.la/2yYvYY7',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab022e1-da6b-43bf-adb3-a593a3d2a96c'
   },
   {
     id: 'pima',
@@ -159,7 +159,7 @@ const gifts = [
     description: 'Para o Gui comprar camisas Pima novas, que são as favoritas dele!',
     image: '/gifts/pima.png',
     mercadoPagoLink: 'https://mpago.la/1x2vkCq',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/d8ctm/6ab1836d-680a-4751-be90-8372ab6df06d'
   },
   {
     id: 'mordida',
@@ -168,7 +168,7 @@ const gifts = [
     description: 'Para cobrir os custos de possíveis mordidas do Eren!',
     image: '/gifts/mordida.png',
     mercadoPagoLink: 'https://mpago.la/2z4WRFd',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab022fb-044e-4465-a126-80e747e0bb96'
   },
   {
     id: 'metal',
@@ -177,7 +177,7 @@ const gifts = [
     description: 'Para a Ti ir nos shows de metal que ela tanto ama!',
     image: '/gifts/metal.png',
     mercadoPagoLink: 'https://mpago.la/1xR7fRt',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02314-1a0c-4592-b87d-01e557ae7a0c'
   },
   {
     id: 'camera',
@@ -186,7 +186,7 @@ const gifts = [
     description: 'Ajuda a gente a sair do CLT!',
     image: '/gifts/camera.png',
     mercadoPagoLink: 'https://mpago.la/21A1xhk',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab02323-0d4d-4a2a-80b0-2478c1a801e9'
   },
   {
     id: 'hospedagem',
@@ -195,7 +195,7 @@ const gifts = [
     description: 'Para o Eren ficar confortável e bem cuidado enquanto estamos viajando!',
     image: '/gifts/hospedagem.png',
     mercadoPagoLink: 'https://mpago.la/2LK3ofm',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab0233b-7d85-455d-9819-9e4365422ab4'
   },
   {
     id: 'livros',
@@ -204,7 +204,7 @@ const gifts = [
     description: 'Para o Gui encher a estante de livros dele!',
     image: '/gifts/livros.png',
     mercadoPagoLink: 'https://mpago.la/1oSBA8G',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab0235e-1875-4561-95e7-3f3bc3702e82'
   },
   {
     id: 'kpop',
@@ -213,7 +213,7 @@ const gifts = [
     description: 'Para o Gui ir nos shows de Kpop que ele ama tanto!',
     image: '/gifts/kpop.png',
     mercadoPagoLink: 'https://mpago.la/1okAFng',
-    pixLink: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=3441ncx'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab0218a-ff28-41a0-8f7a-a0f42ff684f1'
   },
   {
     id: 'outros',
@@ -222,7 +222,7 @@ const gifts = [
     description: 'Para quem quiser contribuir com outros valores, que serão muito bem-vindos! Agradecemos demais pelo carinho e apoio!',
     image: '/gifts/outros.png',
     mercadoPagoLink: 'https://link.mercadopago.com.br/casamentotg',
-    pixLink: 'https://nubank.com.br/cobrar/d8ctm/6aa0bb45-dc0f-4a5a-a06a-edf641e8bbc3'
+    pixLink: 'https://nubank.com.br/cobrar/aypyb/6ab023d1-8a2e-4742-90e6-ea59ab66090a'
   }
 ];
 
@@ -236,9 +236,21 @@ export default function Gifts() {
   const [feedback, setFeedback] = useState('');
   const [confirming, setConfirming] = useState(false);
 
+  /*
+   * Ordena automaticamente os presentes
+   * do maior valor para o menor.
+   *
+   * "Outros valores" possui value: 0,
+   * então ficará sempre por último.
+   */
+  const sortedGifts = [...gifts].sort(
+    (a, b) => b.value - a.value
+  );
+
   async function loadConfirmations() {
     try {
-      const confirmations = await getGiftConfirmations();
+      const confirmations =
+        await getGiftConfirmations();
 
       const counts = {};
 
@@ -270,7 +282,8 @@ export default function Gifts() {
       return;
     }
 
-    const confirmed = giftCounts[gift.id] || 0;
+    const confirmed =
+      giftCounts[gift.id] || 0;
 
     if (confirmed >= INITIAL_QUOTAS) {
       return;
@@ -285,12 +298,6 @@ export default function Gifts() {
       return;
     }
 
-    /*
-     * Confere novamente antes de registrar.
-     *
-     * Isso evita que o próprio navegador confirme
-     * um presente que já apareceu como esgotado.
-     */
     const currentCount =
       giftCounts[pendingGift.id] || 0;
 
@@ -333,9 +340,6 @@ export default function Gifts() {
         'true'
       );
 
-      /*
-       * Atualiza imediatamente na tela.
-       */
       setGiftCounts((current) => ({
         ...current,
         [pendingGift.id]:
@@ -387,7 +391,7 @@ export default function Gifts() {
       </p>
 
       <div className="giftGrid">
-        {gifts.map((gift) => {
+        {sortedGifts.map((gift) => {
           const limited =
             isLimitedGift(gift);
 
