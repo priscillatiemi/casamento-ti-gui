@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import {
   confirmGuest,
   searchGuestByName
@@ -6,7 +7,6 @@ import {
 
 export default function RSVP() {
   const [name, setName] = useState('');
-  const [results, setResults] = useState([]);
   const [selectedGuest, setSelectedGuest] = useState(null);
 
   const [mainConfirmed, setMainConfirmed] = useState(true);
@@ -21,33 +21,55 @@ export default function RSVP() {
 
     setMessage('');
     setSelectedGuest(null);
-    setResults([]);
 
-    if (name.trim().length < 3) {
-      setMessage('Digite seu nome completo.');
+    const searchedName = name.trim();
+
+    if (searchedName.length < 3) {
+      setMessage(
+        'Digite pelo menos 3 letras do seu nome.'
+      );
       return;
     }
 
     setLoading(true);
 
     try {
-      const guests = await searchGuestByName(name);
+      const guests =
+        await searchGuestByName(searchedName);
 
       if (guests.length === 0) {
         setMessage(
-          'Não encontramos seu convite. Confira se digitou seu nome completo ou fale com os noivos.'
+          'Não encontramos seu convite. Tente digitar seu nome e sobrenome ou fale com os noivos.'
         );
-      } else if (guests.length === 1) {
-        selectGuest(guests[0]);
-      } else {
-        setResults(guests);
+
+        return;
       }
+
+      if (guests.length === 1) {
+        selectGuest(guests[0]);
+        return;
+      }
+
+      /*
+       * IMPORTANTE:
+       *
+       * Se mais de um convite for encontrado,
+       * NÃO mostramos os nomes encontrados.
+       *
+       * Assim evitamos revelar nomes de outros
+       * convidados do casamento.
+       */
+      setMessage(
+        'Encontramos mais de um convite com esse nome. 💗 Digite também seu sobrenome para localizarmos o convite correto.'
+      );
+
     } catch (error) {
       console.error(error);
 
       setMessage(
         'Não foi possível buscar agora. Tente novamente ou fale com os noivos.'
       );
+
     } finally {
       setLoading(false);
     }
@@ -57,11 +79,12 @@ export default function RSVP() {
     setSelectedGuest(guest);
 
     /*
-      Se já houve uma confirmação anteriormente,
-      mantém o valor salvo.
-
-      Caso ainda não exista o campo, começa marcado.
-    */
+     * Se já houve uma confirmação anteriormente,
+     * mantém o valor salvo.
+     *
+     * Caso ainda não exista o campo,
+     * começa marcado.
+     */
     setMainConfirmed(
       typeof guest.confirmado === 'boolean'
         ? guest.confirmado
@@ -69,13 +92,17 @@ export default function RSVP() {
     );
 
     setCompanions(
-      (guest.acompanhantes || []).map((item) => ({
-        ...item
-      }))
+      (guest.acompanhantes || []).map(
+        (item) => ({
+          ...item
+        })
+      )
     );
 
-    setNote(guest.observacao || '');
-    setResults([]);
+    setNote(
+      guest.observacao || ''
+    );
+
     setMessage('');
   }
 
@@ -93,27 +120,34 @@ export default function RSVP() {
   }
 
   async function handleConfirm() {
-    if (!selectedGuest) return;
+    if (!selectedGuest) {
+      return;
+    }
 
     setLoading(true);
     setMessage('');
 
     try {
-      await confirmGuest(selectedGuest.id, {
-        confirmado: mainConfirmed,
-        acompanhantes: companions,
-        observacao: note
-      });
+      await confirmGuest(
+        selectedGuest.id,
+        {
+          confirmado: mainConfirmed,
+          acompanhantes: companions,
+          observacao: note
+        }
+      );
 
       setMessage(
         'Presença atualizada com sucesso. Obrigada! 💗'
       );
+
     } catch (error) {
       console.error(error);
 
       setMessage(
         'Não foi possível confirmar. Tente novamente ou fale com os noivos.'
       );
+
     } finally {
       setLoading(false);
     }
@@ -133,8 +167,9 @@ export default function RSVP() {
       </h2>
 
       <p className="sectionIntro">
-        Digite seu nome completo para encontrar seu convite.
-        Se você for acompanhante, pode pesquisar pelo seu próprio nome.
+        Digite seu nome para encontrar seu convite.
+        Se você for acompanhante, pode pesquisar
+        pelo seu próprio nome.
       </p>
 
       <form
@@ -143,10 +178,18 @@ export default function RSVP() {
       >
         <input
           value={name}
-          onChange={(event) =>
-            setName(event.target.value)
-          }
-          placeholder="Digite seu nome completo"
+          onChange={(event) => {
+            setName(event.target.value);
+
+            /*
+             * Limpa mensagens antigas enquanto
+             * a pessoa corrige o nome.
+             */
+            if (message) {
+              setMessage('');
+            }
+          }}
+          placeholder="Digite seu nome"
           autoComplete="name"
         />
 
@@ -164,37 +207,6 @@ export default function RSVP() {
         <p className="notice">
           {message}
         </p>
-      )}
-
-      {results.length > 0 && (
-        <div className="resultCard">
-          <h3>
-            Encontramos mais de uma opção
-          </h3>
-
-          <p>
-            Selecione o seu convite:
-          </p>
-
-          <div className="stack">
-            {results.map((guest) => (
-              <button
-                type="button"
-                className="ghostButton"
-                key={guest.id}
-                onClick={() =>
-                  selectGuest(guest)
-                }
-              >
-                {guest.nome}
-
-                {guest.grupo
-                  ? ` • ${guest.grupo}`
-                  : ''}
-              </button>
-            ))}
-          </div>
-        </div>
       )}
 
       {selectedGuest && (
@@ -258,7 +270,8 @@ export default function RSVP() {
 
           {companions.length === 0 && (
             <p className="muted">
-              Não há acompanhantes cadastrados para este convite.
+              Não há acompanhantes cadastrados
+              para este convite.
             </p>
           )}
 
