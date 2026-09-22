@@ -387,7 +387,7 @@ export default function Gifts() {
       </p>
 
       <p>
-        Chave PIX: 11940395880 <br />
+        Chave PIX: kenji_kanashiro@hotmail.com <br />
         Agradecemos demais pelo carinho e apoio!
       </p>
 
