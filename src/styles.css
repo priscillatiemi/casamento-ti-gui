@@ -853,3 +853,10 @@ h1, h2, h3 { margin: 0 0 12px; line-height: 1.08; }
   cursor: not-allowed;
 }
 
+.heroButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
