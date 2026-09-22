@@ -375,19 +375,20 @@ export default function Gifts() {
 
       <h2>Lista de presentes</h2>
 
+      <p>
+        Queridos familiares e amigos, para quem quiser nos presentear,
+        deixamos como contribuição preferencial o PIX.
+        Ficaremos muito gratos!
+      </p>
+
       <p className="sectionIntro">
         Os valores são apenas sugestões.
         Você pode presentear via PIX ou cartão de crédito.
       </p>
 
       <p>
-        Queridos familiares e amigos, para quem quiser nos presentear,
-        deixamos como contribuição preferencial o PIX.
-        Ficaremos muito gratos! Agradecemos demais pelo carinho e apoio!
-      </p>
-
-      <p>
-        Chave PIX: tiemiakemi@hotmail.com
+        Chave PIX: tiemiakemi@hotmail.com <br />
+        Agradecemos demais pelo carinho e apoio!
       </p>
 
       <div className="giftGrid">
