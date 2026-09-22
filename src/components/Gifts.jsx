@@ -387,7 +387,7 @@ export default function Gifts() {
       </p>
 
       <p>
-        Chave PIX: tiemiakemi@hotmail.com <br />
+        Chave PIX: 11940395880 <br />
         Agradecemos demais pelo carinho e apoio!
       </p>
 
