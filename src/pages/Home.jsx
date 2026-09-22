@@ -10,7 +10,7 @@ export default function Home() {
         <div className="heroContent">
           <p className="eyebrow">Save the date</p>
           <h1>Priscilla & Guilherme</h1>
-          <p className="date">13 de fevereiro de 2027 • 19h</p>
+          <p className="date">13 de fevereiro de 2027 • 18h30</p>
           <Countdown />
           <a className="primaryLink" href="#rsvp">Confirmar presença</a>
         </div>
