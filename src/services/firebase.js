@@ -56,23 +56,30 @@ export function normalizeName(name) {
     .replace(/\s+/g, ' ');
 }
 
-function getSearchNames(name) {
+export function getSearchNames(name) {
   const normalized = normalizeName(name);
 
   if (!normalized) {
     return [];
   }
 
-  const firstName = normalized.split(' ')[0];
+  const parts = normalized.split(' ').filter(Boolean);
 
   return [
-    normalized,
-    firstName
+    ...new Set([
+      normalized,
+      parts[0],
+      parts.slice(0, 2).join(' ')
+    ])
   ];
 }
 
 export async function searchGuestByName(name) {
   const normalized = normalizeName(name);
+
+  if (!normalized) {
+    return [];
+  }
 
   const guestsRef = collection(db, 'convidados');
 
@@ -103,7 +110,9 @@ export async function confirmGuest(guestId, payload) {
 export async function addGuest(payload) {
   const allNames = [
     payload.nome,
-    ...payload.acompanhantes
+    ...(payload.acompanhantes || []).map((person) =>
+      typeof person === 'string' ? person : person.nome
+    )
   ];
 
   const nomesBusca = [
@@ -114,24 +123,16 @@ export async function addGuest(payload) {
 
   return addDoc(collection(db, 'convidados'), {
     nome: payload.nome,
-
     nomeBusca: normalizeName(payload.nome),
-
     nomesBusca,
-
     grupo: payload.grupo || '',
-
     confirmado: false,
-
     observacao: '',
-
-    acompanhantes: payload.acompanhantes.map((nome) => ({
-      nome,
+    acompanhantes: (payload.acompanhantes || []).map((person) => ({
+      nome: typeof person === 'string' ? person : person.nome,
       confirmado: false
     })),
-
     criadoEm: serverTimestamp(),
-
     atualizadoEm: serverTimestamp()
   });
 }
@@ -192,4 +193,45 @@ export async function getGiftConfirmations() {
     id: item.id,
     ...item.data()
   }));
+}
+
+export async function updateGuestSearchNames() {
+  const guestsRef = collection(db, 'convidados');
+
+  const snapshot = await getDocs(guestsRef);
+
+  let total = 0;
+
+  for (const guestDoc of snapshot.docs) {
+    const data = guestDoc.data();
+
+    const allNames = [
+      data.nome,
+      ...(data.acompanhantes || []).map(
+        (person) =>
+          typeof person === 'string'
+            ? person
+            : person.nome
+      )
+    ];
+
+    const nomesBusca = [
+      ...new Set(
+        allNames.flatMap((nome) => getSearchNames(nome))
+      )
+    ];
+
+    await updateDoc(
+      doc(db, 'convidados', guestDoc.id),
+      {
+        nomeBusca: normalizeName(data.nome),
+        nomesBusca,
+        atualizadoEm: serverTimestamp()
+      }
+    );
+
+    total++;
+  }
+
+  return total;
 }
